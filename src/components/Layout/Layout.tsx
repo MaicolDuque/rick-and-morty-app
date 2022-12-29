@@ -6,7 +6,6 @@ import './index.css'
 export const LayoutContainer = styled.div`
   display: flex;
   height: 100%;
-  background-color: red;
 `
 
 export function Layout(){
