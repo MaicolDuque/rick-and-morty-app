@@ -7,8 +7,8 @@ import rickMortyTitle2 from '../../assets/Rick-and-morty-title2.png'
 export function Sidebar(props: React.HTMLAttributes<HTMLDivElement>){
   return(
     <div {...props}>
-      <img className="sidebar-title-image" src={rickMortyTitle} alt="Rick and Morty" />
-      <img className="sidebar-title-image" src={rickMortyTitle2} alt="Rick and Morty Footer" />
+      <img className="sidebar-title-image top" src={rickMortyTitle} alt="Rick and Morty" />
+      <img className="sidebar-title-image bottom" src={rickMortyTitle2} alt="Rick and Morty Footer" />
     </div>
   )
 }

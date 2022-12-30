@@ -1,3 +1,13 @@
 .sidebar-title-image {
   max-width: 100%;
+  position: fixed;
+  width: 18%;
+}
+
+.top {
+  top: 0;
+}
+
+.bottom {
+  bottom: 0;
 }
