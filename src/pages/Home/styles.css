@@ -1,0 +1,45 @@
+.characterImage {
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: -1px -1px 40px -4px rgba(0,0,0,0.75);
+}
+
+.character-item__info {
+  background-color: white;
+  height: 90px;
+  border-radius: 20px;
+  padding: 14px;
+  padding-top: 30px;
+  margin-top: -25px;
+  z-index: -1;
+  text-align: center;
+  font-size: 16px;
+  color: #0f0f0f;
+}
+
+.character-item__info-name {
+  color: #02b1c9;
+  text-align: center;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 23px;
+}
+
+.character-item__info-status {
+  border-radius: 20px;
+  padding: 2px 10px;
+  color: white;
+}
+
+.status-alive {
+  background-color: rgb(50, 211, 50);
+}
+
+.status-dead {
+  background-color: rgb(240, 52, 52);
+}
+
+.status-unknown {
+  background-color: rgb(183, 183, 183);
+}
