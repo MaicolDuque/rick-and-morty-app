@@ -1,0 +1,10 @@
+input[type="text"] {
+  width: 50%;
+  height: 34px;
+  border: none;
+  border-radius: 11px;
+  padding: 0px 13px;
+  font-size: 15px;
+  font-family: sans-serif;
+  box-shadow: 2px 5px 29px -5px rgba(255,255,255,1);
+}

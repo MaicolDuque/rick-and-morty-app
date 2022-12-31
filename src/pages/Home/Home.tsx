@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import styled from "styled-components";
+import { Navbar } from "../../components/Navbar/Navbar";
 import { fetchCharacters } from "../../redux/actions/characters.actions";
 import { useAppDispatch } from "../../redux/hooks";
 import { CharacterList } from "./components/CharacterList";
@@ -20,7 +21,7 @@ export function Home(){
 
 	return (
     <div>
-      HOME
+      <Navbar />
       <CharactersContainer>
         <CharacterList />
       </CharactersContainer>
