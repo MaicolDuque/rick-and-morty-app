@@ -17,7 +17,7 @@ export function Navbar(){
   const debounce = useDebounce()
   const handleSearch = (e: ChangeEvent<HTMLInputElement> ) => {
     debounce(() => {
-      dispatch(updateCharactersFilters({ name: e.target.value }))
+      dispatch(updateCharactersFilters({ name: e.target.value, page: 1 }))
       dispatch(fetchCharacters())
     }, 500)
   }

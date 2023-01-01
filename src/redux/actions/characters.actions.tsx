@@ -9,19 +9,21 @@ export const UPDATE_CHARACTERS_FILTERS = 'UPDATE_CHARACTERS_FILTERS'
 export const fetchCharactersStart = () => ({ type: FETCH_CHARACTERS_START })
 export const fetchCharactersComplete = (payload: any[]) => ({ type: FETCH_CHARACTERS_COMPLETE, payload })
 export const fetchCharactersError = (error: any) => ({ type: FETCH_CHARACTERS_ERROR, error })
-export const updateCharactersFilters = (payload: Record<string, string>) => ({ type: UPDATE_CHARACTERS_FILTERS, payload })
+export const updateCharactersFilters = (payload: Record<string, string | number>) => ({ type: UPDATE_CHARACTERS_FILTERS, payload })
 
 
 //Action creator
-export const fetchCharacters = () => async (dispatch: AppDispatch, state: any) => {
+export const fetchCharacters = (nextPage = false) => async (dispatch: AppDispatch, state: any) => {
   try {
-      const stateFilter = state().charactersReducer.filters
+      const characters = state().charactersReducer.characters
+      let stateFilter = state().charactersReducer.filters
       const filters = Object.entries(stateFilter).reduce((acc, filter) => {
         return acc += `${filter[0]}=${filter[1]}&`
       }, '')
-      dispatch(fetchCharactersStart());
+      if(!nextPage) dispatch(fetchCharactersStart());
       const response = await apiCall(`https://rickandmortyapi.com/api/character/?${filters}`);
-      dispatch(fetchCharactersComplete(response?.results ?? []));
+      const newCharacters = nextPage ? [...characters, ...(response?.results ?? [])] : (response?.results ?? [])
+      dispatch(fetchCharactersComplete(newCharacters));
   } catch (error) {
       dispatch(fetchCharactersError(error));
   }
