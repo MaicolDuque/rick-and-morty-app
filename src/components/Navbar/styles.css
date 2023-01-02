@@ -8,3 +8,24 @@ input[type="text"] {
   font-family: sans-serif;
   box-shadow: 2px 5px 29px -5px rgba(255,255,255,1);
 }
+
+.filter-image {
+  cursor: pointer;
+}
+
+.modal-body-filters {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.container-filter-options {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+}
+
+select {
+  height: 30px;
+}
