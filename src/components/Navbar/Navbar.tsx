@@ -21,7 +21,7 @@ const genders = [
 ]
 
 const status = [
-  { name: 'All', value: '' }, { name: 'Active', value: 'active' }, { name: 'Dead', value: 'dead' },
+  { name: 'All', value: '' }, { name: 'Alive', value: 'alive' }, { name: 'Dead', value: 'dead' },
   { name: 'Unknown', value: 'unknown' },
 ]
 
