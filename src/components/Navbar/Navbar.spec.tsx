@@ -16,7 +16,6 @@ describe('Navbar tests', () => {
     const input = screen.getByPlaceholderText('Search a character')
     fireEvent.change(input, {target: { value: '23444' }})
     await screen.findByText('No characters found')
-    screen.debug()
     expect(input).toBeInTheDocument()
   })
 })

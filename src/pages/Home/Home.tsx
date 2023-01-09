@@ -57,7 +57,7 @@ export function Home(){
       { isLoading
       ? 'Loading...'
       : <HomeWrapper>
-        <CharactersContainer>
+        <CharactersContainer data-testid="characters-container">
           <CharacterList />
         </CharactersContainer>
         <Visor id="visor" ref={externalRef} ></Visor>

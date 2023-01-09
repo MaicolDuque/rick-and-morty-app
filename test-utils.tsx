@@ -10,7 +10,7 @@ const AllTheProviders = ({ children }) => {
   )
 }
 
-const customRender = (ui, options = {}) =>
+const customRender = (ui: any, options = {}) =>
   render(ui, {
     // wrap provider(s) here if needed
     wrapper: AllTheProviders,
@@ -19,6 +19,5 @@ const customRender = (ui, options = {}) =>
 
 export * from "@testing-library/react";
 export { default as userEvent } from "@testing-library/user-event";
-export { waitFor } from "@testing-library/jest-dom"
 // override render export
 export { customRender as render };
