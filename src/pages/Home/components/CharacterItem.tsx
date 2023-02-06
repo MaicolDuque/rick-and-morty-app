@@ -17,7 +17,7 @@ export function CharacterItem({ character }: { character: Record<string, string>
     <CharacterItemStyled key={character.id}>
       <img className="characterImage"  src={character.image} alt={character.name} />
       <div className="character-item__info">
-        <div className="character-item__info-name">{character.name}</div>
+        <div className="character-item__info-name" data-testid="character-name">{character.name}</div>
         <div><strong>Species:</strong> {character.species}</div>
         <div><strong>Status:</strong> <span className={`character-item__info-status ${statusClass[character.status]}`}>{character.status}</span></div>
       </div>

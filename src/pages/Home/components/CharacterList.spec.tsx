@@ -1,10 +1,15 @@
 import { describe, expect, it } from "vitest"
-import { render, screen } from "../../../../test-utils";
+import { findAllByTestId, getByText, render, screen } from "../../../../test-utils";
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import { CharacterList } from "./CharacterList";
 import { Home } from "../Home";
 import { vi } from 'vitest'
+import { fetch } from 'cross-fetch';
+
+// Add `fetch` polyfill: NodeJs does not support fetch() yet
+global.fetch = fetch;
+
 
 const Mock = function(){
   return {
@@ -14,13 +19,14 @@ const Mock = function(){
 }
 
 const results = [
-  { gender: '', id: '', image: '' }
+  { gender: '', id: '', image: '', name: 'Prueba Name', species: 'Human', status: "Alive" }
 ]
 const server = setupServer(
-  rest.get('https://rickandmortyapi.com/api/character/?page=1&name=&status=&gender=&species=&', (req, res, ctx) => {
+  rest.get('https://rickandmortyapi.com/api/character/*', (req, res, ctx) => {
     return res(ctx.json({ info: 'hello there', results }))
   }),
 )
+
 
 beforeAll(() => {
   server.listen()
@@ -33,10 +39,11 @@ afterAll(() => {
 })
 
 describe('CharacterList tests', () => {
-  it('Should render characters', () => {
-    render(<Home />)
-    render(<CharacterList />)
-
-    screen.debug()
+  it('Should render characters', async () => {
+    const { findAllByTestId } = render(<Home />)
+    const characters = await findAllByTestId('character-name')
+    const characterName = getByText(characters[0], 'Prueba Name')
+    expect(characters[0]).toBeInTheDocument()
+    expect(characterName).toBeInTheDocument()
   })
 })
