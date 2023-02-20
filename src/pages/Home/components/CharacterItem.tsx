@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components"
 
 const CharacterItemStyled = styled.div`
-min-height: 280px;
-display: flex;
-flex-direction: column;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 `
 
 const statusClass: Record<string, string> = {
@@ -13,8 +15,13 @@ const statusClass: Record<string, string> = {
 }
 
 export function CharacterItem({ character }: { character: Record<string, string> }){
+  const navigate = useNavigate();
+  const onClickItem = () => {
+    navigate(`/detail/${character.id}`)
+  }
+
   return (
-    <CharacterItemStyled key={character.id}>
+    <CharacterItemStyled key={character.id} onClick={onClickItem}>
       <img className="characterImage"  src={character.image} alt={character.name} />
       <div className="character-item__info">
         <div className="character-item__info-name" data-testid="character-name">{character.name}</div>
